@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Panonit\\source\\repos\\Example\\Example\\Example.csproj": {}
+    "D:\\Zadatak1\\Example\\Example\\Example.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Panonit\\source\\repos\\Example\\Example\\Example.csproj": {
+    "D:\\Zadatak1\\Example\\Example\\Example.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Panonit\\source\\repos\\Example\\Example\\Example.csproj",
+        "projectUniqueName": "D:\\Zadatak1\\Example\\Example\\Example.csproj",
         "projectName": "Example",
-        "projectPath": "C:\\Users\\Panonit\\source\\repos\\Example\\Example\\Example.csproj",
+        "projectPath": "D:\\Zadatak1\\Example\\Example\\Example.csproj",
         "packagesPath": "C:\\Users\\Panonit\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Panonit\\source\\repos\\Example\\Example\\obj\\",
+        "outputPath": "D:\\Zadatak1\\Example\\Example\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Panonit\\AppData\\Roaming\\NuGet\\NuGet.Config",
