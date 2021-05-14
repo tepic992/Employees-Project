@@ -1,15 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Example.Managers;
 
 namespace Example
 {
@@ -25,7 +21,22 @@ namespace Example
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<FirmDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<EmplManagers>();
+            services.AddScoped<JobManagers>();
+            services.AddScoped<JobTypeManagers>();
+            services.AddScoped<JobAvailManagers>();
+            services.AddScoped<ManagmentManagers>();
+            services.AddScoped<SkillManagers>();
+            services.AddScoped<JobTypeSkillManagers>();
+
+            //services.AddDbContext<JobRepository>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Job")));
+            //services.AddDbContext<JobTypeRepository>(opt => opt.UseSqlServer(Configuration.GetConnectionString("JobType")));
+            //services.AddDbContext<JobAvailabilityRepository>(opt => opt.UseSqlServer(Configuration.GetConnectionString("JobAvailability")));            
             services.AddControllers();
+
+            services.AddSwaggerGen(c => c.SwaggerDoc(name:"Coding", new OpenApiInfo { Title="Training", Version="Coding" }));
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +47,10 @@ namespace Example
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            c.SwaggerEndpoint(url: "/swagger/Coding/swagger.json", name:"Training Coding "));
             app.UseHttpsRedirection();
 
             app.UseRouting();
