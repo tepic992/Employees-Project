@@ -52,6 +52,7 @@ namespace Example.Managers
             }
             else
             {
+                _context.tblSkills.Where(x => x.Id == skill.Id);
                 _context.tblSkills.Add(skill);
                 _context.SaveChanges();
                 return skill;
@@ -70,7 +71,7 @@ namespace Example.Managers
             {
                 return null;
             }
-            
+                         
             var validateName = _context.tblSkills.FirstOrDefault
                 (x => x.Name == skill.Name && x.Id != skill.Id);
             if (validateName != null)

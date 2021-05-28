@@ -51,7 +51,7 @@ namespace Example.Entities
         /// </summary>
         /// 
         [Required(ErrorMessage = "{0} is required" )]
-        [StringLength(80, MinimumLength =20,
+        [StringLength(80, MinimumLength =3,
             ErrorMessage ="Description should be minimum 3 charaters and a maximum of 80.")]       
         public string Description;
         

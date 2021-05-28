@@ -17,7 +17,7 @@ namespace Example.Entities
         /// <summary>
         /// Primarni kljuc klase Skill.
         /// </summary>
-        [Required(ErrorMessage = "{0} is required")]
+        [Required(ErrorMessage = "Should not be null or empty")]
         [Key]        
         public int Id { get; set; }
 

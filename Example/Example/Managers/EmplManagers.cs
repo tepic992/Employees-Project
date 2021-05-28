@@ -55,15 +55,24 @@ namespace Example.Managers
         {
 
 
+
             if (employee.DateOfEmployee.Date < DateTime.Now.Date)
             {
                 return null;
             }
 
+            var result = _context.tblEmployees
+                .Where(x => x.Id == employee.Id);
 
             _context.tblEmployees.Add(employee);
             _context.SaveChanges();            
             return employee;
+        }
+
+        private  bool IsIdListValid(IEnumerable<int> idList)
+        {
+            idList.Any(id => !_context.tblEmployees.Any(x => x.Id == id));
+            return idList.All(x => idList.Contains(x));
         }
 
         private bool IsValidEmail(string email)

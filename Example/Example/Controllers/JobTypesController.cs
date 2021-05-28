@@ -60,14 +60,14 @@ namespace Example.Controllers
         /// Ukoliko je rezultat trazenja 0, izbacice nam 404 status kod sto znaci da je doslo do greske,
         /// inace status je prihvacen i napravljen je novi JobType sa atributima ///
         [HttpPost]
-        public ActionResult PostJobType(JobTypeDTO jobTypes)
+        public string PostJobType(JobTypeDTO jobTypes)
         {
-            //var resultNew = _mng.Post(jobTypes);
-            //if (resultNew == null)
-            //{
-            //    return NotFound();
-            //}
-                return Ok();
+            var resultnew = _mng.Post(jobTypes);
+            if (resultnew == null)
+            {
+                return _mng.Post(jobTypes);
+            }
+            return resultnew;
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Example.Controllers
         /// Ukoliko je rezultat trazenja 0, izbacice nam 404 status kod sto znaci da je doslo do greske,
         /// inace status je prihvacen i modifikovan je zahtev sa zadatim Id i ostalim atributima. ///
         [HttpPut("{id}")]
-        public ActionResult PutJobType(long id, JobType jobType)
+        public ActionResult PutJobType(long id, JobTypeDTO jobType)
         {
             var result = _mng.Put(id, jobType);
             if (result==null)

@@ -12,6 +12,8 @@ namespace Example.DTO
         /// </summary>
         public int Id { get; set; }
 
+        public List<long> SkillIDs { get; set; }
+
         public string Name { get; set; }
 
         public string LastName { get; set; }

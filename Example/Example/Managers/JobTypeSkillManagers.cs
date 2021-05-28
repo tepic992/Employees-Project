@@ -57,7 +57,7 @@ namespace Example.Managers
         public JobTypeSkill Post(JobTypeSkill jobTypeSkill)
         {
 
-            
+           
             _context.tblJobTypeSkills.Add(jobTypeSkill);
             _context.SaveChanges();
             return jobTypeSkill;
