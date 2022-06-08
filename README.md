@@ -6,8 +6,10 @@
 
 ##Tasks
 
-Creating employees, jobs, type of jobs, skills of all employees
+Creating employees, jobs, type of jobs, skills of all employees and other entities
+
 Creating controllers and repositories
+
 Using CRUD operations 
 
 ##Technologies used: 
